@@ -1,0 +1,57 @@
+( function( $ ){
+	
+	// On DOM Ready...
+	$( function( ){
+		
+		var EmailInstitutePage = {
+		
+			/**
+			 * Initializes search box behaviors.
+			 */
+			InitializeSearchBox: function( ){
+				
+				// Stores default value.
+				var txt = $( '#block-search-0 .form-text' );
+				txt.data( 'default', txt.val( ) );
+				
+				// Adds onFocus and onClick behaviours.
+				txt.focus( function( ){
+					
+					// Clears search string if it is the default value.
+					if( txt.val( ) == txt.data( 'default' ) ){
+						txt.val( '' );
+					}
+					
+				} ).blur( function( ){
+					
+					// Sets default value if user didn't edit the value.
+					if( txt.val( ) == '' ){
+						txt.val( txt.data( 'default' ) );
+					}
+					
+				} );
+				
+			},
+			
+			InitializeLoginBox: function( ){
+				
+				// Hides login block.
+				//$( '#login-block' ).hide( );
+				
+			},
+			
+			InitializePage: function( ){
+				
+				this.InitializeSearchBox( );
+				
+			}
+		
+		};
+		
+		
+		$( function( ){ EmailInstitutePage.InitializePage( ); } );
+		
+		
+	} );
+	
+} )( jQuery );

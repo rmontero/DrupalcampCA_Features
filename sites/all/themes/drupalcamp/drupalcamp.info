@@ -1,0 +1,21 @@
+; Theme identification
+name = Drupalcamp
+description = Anexus Base Theme for Designers
+version = "1.0"
+
+; Theme requisites
+core = 6.x
+engine = phptemplate
+
+; Theme regions
+regions[header] = Header
+regions[left] = Left sidebar
+regions[content] = Content
+regions[right] = Right sidebar
+regions[footer] = Footer
+
+; Stylesheets
+stylesheets[all][] = styles.css
+
+; Scripts
+scripts[] = script.js

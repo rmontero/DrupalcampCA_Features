@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $language->language ?>" lang="<?php print $language->language ?>" dir="<?php print $language->dir ?>">
+<head>
+ <?php print $head; ?>
+ <title><?php print $head_title; ?></title>
+ <?php print $styles; ?>
+ <?php print $scripts; ?>
+</head>
+<body class="<?php print $body_classes; ?>">
+  <!-- HEADER -->
+  <div id="header">
+    <div class="centered-container clearfix">
+	    <div id="logo-container">
+  	    <a href="<?php print base_path( ); ?>"><?php print theme( 'image', "{$directory}/logo.png", $site_name, $site_name ); ?></a>
+      </div>
+      <div id="region-top-middle">
+    	  <?php print $regionTopMiddle; ?>
+      </div>
+      <div id="region-top-right">
+  		  <?php print $regionTopRight; ?>
+      </div>
+      <?php echo theme( 'links', $primary_links, array( 'class' => 'links primary-links' ) ); ?>
+      <div id="region-top-login">
+        <?php print $regionTopRightBelow; ?>
+      </div>
+    </div>
+  </div>
+  <!-- CONTENT -->
+  <div id="content">
+  	<div class="centered-container clearfix">
+            <?php print $regionBeforeContent; ?>
+            <?php echo $title, $tabs, $tabs2, $messages, $content; ?>
+            <?php print $regionAfterContent; ?>
+        </div>
+  </div>  
+  <!-- FOOTER -->
+  <div id="footer">
+  	<div class="centered-container">
+    	<div id="footer-links">
+        <?php print theme( 'links', $secondary_links ); ?>
+      </div>
+      <div id="footer-message">
+        <?php print $footer_message; ?>
+      </div>
+    </div>
+  </div>
+  <?php print $closure; ?>
+</body>
+</html>

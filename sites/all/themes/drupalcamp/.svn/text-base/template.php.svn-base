@@ -1,0 +1,52 @@
+<?php
+
+function email_institute_theme( ){
+
+  return array( 
+		'user_login_block'              =>  array(
+																					'template' => 'user-login-block',
+                                          'arguments' => array( 'form' => null ),
+                                        ),
+  );
+
+}
+
+function email_institute_preprocess_search_block_form( &$vars ) {
+    
+  // Using path_to_theme( ) will result in modules/search, that's why we get the path.
+  $pathToTheme = drupal_get_path( 'theme', 'email_institute' );
+  
+  // Modify elements of the search form
+  unset( $vars[ 'form' ][ 'search_block_form' ][ '#title' ] );
+  
+  // Set a default value for the search box
+  $vars['form']['search_block_form']['#value'] = t( 'Search ');
+  
+  // Modify elements of the submit button
+  unset($vars['form']['submit']);
+  
+  // Change submit button type.
+  $vars[ 'form' ][ 'submit' ][ 'image_button' ] = array( '#type' => 'image_button', '#src' => $pathToTheme . '/images/search-button.png' );
+    
+  // Rebuild the rendered version (search form only, rest remains unchanged)
+  unset($vars['form']['search_block_form']['#printed']);
+  $vars['search']['search_block_form'] = drupal_render($vars['form']['search_block_form']);
+  
+  // Rebuild the rendered version (submit button, rest remains unchanged)
+  unset($vars['form']['submit']['#printed']);
+  $vars['search']['submit'] = drupal_render($vars['form']['submit']);
+  
+  // Collect all form elements to print entire form
+  $vars['search_form'] = implode($vars['search']);
+  
+  // Advanced search link.
+  $vars[ 'search_form' ] .= '<span class="search-link-wrapper">' . l( t( 'Advanced search' ), 'search' ) . '</span>';
+  
+}
+
+function email_institute_preprocess_user_login_block( &$vars ){
+
+  unset( $vars[ 'form' ][ 'title_text' ] );
+  unset( $vars[ 'form' ][ 'links' ] );
+ 
+}

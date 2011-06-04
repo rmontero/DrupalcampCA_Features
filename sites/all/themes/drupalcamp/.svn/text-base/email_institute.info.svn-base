@@ -1,0 +1,22 @@
+; Theme identification
+name = Email Institute
+description = Theme for Email Institute by Costa Rican Company <a href="http://www.anexusit.com">Anexus IT</a>.
+
+; Theme requisites
+core = 6.x
+engine = phptemplate
+
+; Theme regions
+regions[regionTopMiddle] = Header region middle container
+regions[regionTopRight] = Header region right container
+regions[regionBeforeContent] = Before Main Content
+regions[regionAfterContent] = After Main Content
+regions[regionTopRightBelow] = Header region below top right region next to primary links
+
+; Stylesheets
+stylesheets[all][] = reset.css
+stylesheets[all][] = style.less
+
+; Scripts
+scripts[] = script.js
+

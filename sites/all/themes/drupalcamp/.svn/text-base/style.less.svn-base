@@ -1,0 +1,272 @@
+/* -------------------------------------------------------------
+ * Fix for floated elements.
+ */
+.clearfix:after {
+  clear: both;
+  content: ' ';
+  display: block;
+  font-size: 0;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+  width: 0;
+}
+
+/*
+  The following zoom:1 rule is specifically for IE6 + IE7.
+  Move to separate stylesheet if invalid CSS is a problem.
+*/
+* html .clearfix,
+*:first-child+html .clearfix {
+  zoom: 1;
+}
+
+/*
+ * Fix for floated elements.
+ * ------------------------------------------------------------- */
+
+html{
+  background: #DDD;
+}
+
+body{
+  font-family: Tahoma, Arial, sans-serif;;
+  min-width: 1000px;
+}
+
+a{
+  text-decoration: none;
+}
+
+a:hover, a.active{
+  text-decoration: underline;
+}
+
+.centered-container{
+  margin: 0 auto;
+  width: 1000px;
+}
+
+/* HEADER */
+#header{
+  background: url(images/bgHeader.png) repeat-x;
+  min-height: 113px;
+  .centered-container{
+    background: url(images/bgCenteredHeader.jpg) no-repeat;
+  }
+  #logo-container{
+    float: left;
+    padding: 16px 19px;
+    width: 500px;
+  }
+  #region-top-middle{
+    float: left;
+    padding: 17px 0;
+    text-align: right;
+    width: 297px;
+  }
+  #region-top-right{
+    float: right;
+    padding: 23px 15px 10px 0;
+  }
+	#region-top-login{
+		float: right;
+		padding: 0 15px;
+		position: relative;
+		width: 250px;
+	}
+	#login-links{
+		padding: 6px 0 0;
+		text-align: right;
+		.link-button{
+			font-size: 0.85em;
+			font-weight: bold;
+			margin-left: 5px;
+		}
+	}
+	#login-block-form{
+		background: #f8f8f8;
+		padding: 10px;
+		text-align: left;
+	  h2{
+	  	color: #737373;
+			font-size: 2em;
+	  }
+		.form-item{
+			margin-top: 0;
+		}
+	}
+}
+
+/* PRIMARY - SUB-MENU */
+ul.primary-links { 
+    background: url(images/bg-primary-menu-split.png) left 0 no-repeat;
+    float: left;
+    font-size: 0.9em;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 700px;
+    li {
+        background: url(images/bg-primary-menu-split.png) right 0 no-repeat;
+        display: block;
+        float: left;
+        padding: 11px 0 14px;
+        a {
+            color: #FFFFFF;
+	    display: block;
+	    font-weight: bold;
+	    padding: 0 12px;
+        }
+        a:hover{
+            text-decoration: none;
+	}
+    }
+    li.active {
+        background: url(images/bg-primary-menu-active.png) right 0 no-repeat;
+    }
+    li.active a {
+        text-decoration: none;
+    }
+}
+
+#block-menu-menu-sub-menu ul {
+    background: url(images/bg-submenu.png) left 0 repeat-x;
+    font-size: 0.9em;
+    overflow: hidden;
+    width: 100%;
+    padding: 0;
+    li {
+        background: url(images/bg-submenu-split.png) right 0 no-repeat;
+        display: block;
+        float: left;
+        padding:6px 0 7px;
+        margin: 0;
+        a {
+            color: #696969;
+	    display: block;
+	    font-weight: bold;
+	    padding: 0 13px;
+            font-size: 11px;
+        }
+        a:hover{
+            text-decoration: none;
+	}
+    }
+}
+
+/* SEARCH */
+#search-block-form{
+  .form-item{
+    margin: 0;
+  }
+  input{
+    color: #c3c3c3;
+    font-style: italic;
+  }
+  .form-item{
+    margin: 0;
+    float: left;
+  }
+  .form-text{
+    background: url(images/bgSearch.png) no-repeat;
+    border: none;
+    padding: 4px 2px 4px 4px;
+  }
+  .search-link-wrapper{
+    display: block;
+    font-size: 0.8em;
+    text-align: center;
+    a{
+      color: #FFF;
+			text-transform: capitalize;
+    }
+  }
+}
+
+/* MAIN CONTENT */
+#content{
+  .centered-container{
+    background: #FFF;
+    border: #cdcdcd solid 1px;
+    min-height: 400px;
+  }
+}
+
+/* FOOTER */
+#footer{
+  background: url(images/bgFooter.png) repeat-x;
+  height: 148px;
+  .centered-container{
+    background: url(images/bgCenteredFooter.png) no-repeat;
+    font-size: 0.85em;
+    height: 100%;
+  }
+  #footer-links{
+    text-align: right;
+    padding: 40px 85px 13px;
+    a{
+      color: #6a6a6a;
+    }
+    li{
+      border-right: #a7a7a7 solid 1px;
+      padding: 0 0.55em;
+    }
+    li.first{
+      padding-left: 0;
+    }
+    li.last{
+      border: none;
+      padding-right: 0;
+    }
+  }
+  #footer-message{
+    color: #a6a6a6;
+    padding: 0 85px;
+    text-align: right;
+  } 
+}
+
+a.link-button{
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1.1em;
+  padding-left: 5px;
+	text-decoration: none;
+  span{
+  	display: inline-block;
+    padding-right: 5px;
+		span{
+			padding: 5px 6px 6px;
+		}
+  }
+}
+
+
+@LinkButton1URL = url(images/bgButton.png);
+@LinkButton2URL = url(images/bgButton2.png);
+
+a.link-button-1{
+	background: @LinkButton1URL no-repeat 0 0;
+	color: #FFF;
+	span{
+		background-image: @LinkButton1URL;
+		background-repeat: repeat;
+		background-position: right -60px; 
+		span{
+		  background-position: 0 -30px;
+    }
+	}
+}
+
+a.link-button-2{
+  background: @LinkButton2URL no-repeat 0 0;
+  color: #FFF;
+  span{
+    background-image: @LinkButton2URL;
+    background-repeat: repeat;
+    background-position: right -60px; 
+    span{
+      background-position: 0 -30px;
+    }
+  }
+}
