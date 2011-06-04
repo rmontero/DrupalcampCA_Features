@@ -35,6 +35,9 @@ function productos_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'products' => 'products',
   );
+
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block_1');
   $translatables['Productos'] = array(
     t('Defaults'),
     t('more'),
@@ -46,6 +49,7 @@ function productos_views_default_views() {
     t('Items per page'),
     t('- All -'),
     t('Offset'),
+    t('Block'),
   );
 
   $views[$view->name] = $view;
